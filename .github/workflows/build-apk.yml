@@ -22,6 +22,8 @@ jobs:
     steps:
       - name: Check out source
         uses: actions/checkout@v4
+        with:
+          lfs: true
 
       - name: Set up Java
         uses: actions/setup-java@v4
@@ -41,7 +43,7 @@ jobs:
             "ndk;26.2.11394342"
 
       - name: Build debug APK
-        run: ./gradlew --no-daemon assembleVer_debugDebug
+        run: bash ./gradlew --no-daemon assembleVer_debugDebug
 
       - name: Upload debug APK
         uses: actions/upload-artifact@v4
