@@ -34,7 +34,7 @@
             android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="GloryRP"
+            android:text="Rockstar"
             android:textSize="16sp"
             android:maxLines="1"
             android:ellipsize="end"/>

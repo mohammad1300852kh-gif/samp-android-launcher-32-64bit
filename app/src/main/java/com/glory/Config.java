@@ -5,6 +5,8 @@ public class Config {
     public static String PATH_DOWNLOADS = APP_PATH + "downloads/";
     public static String GAME_PATH = APP_PATH;
     public static final String API_LINK = "https://glory-rp.ir/";
+    public static final String SERVER_HOST = "5.57.37.215";
+    public static final int SERVER_PORT = 7777;
 
     public static final String VK_LINK = "https://discord.gg/9t8wgbAzM8";
     public static final String YT_LINK = "https://discord.gg/9t8wgbAzM8";

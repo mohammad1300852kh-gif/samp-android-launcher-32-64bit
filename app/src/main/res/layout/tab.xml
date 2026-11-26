@@ -25,7 +25,7 @@
             android:id="@+id/tab_server_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="GloryRP"
+            android:text="Rockstar"
             android:singleLine="true"
             android:layout_weight="4"
             android:font="@font/notosans_black"

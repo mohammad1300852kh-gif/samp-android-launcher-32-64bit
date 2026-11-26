@@ -83,6 +83,8 @@ public class Utils extends AppCompatActivity {
             try {
                 Wini w = new Wini(settings);
                 w.put("client", "server", serverId);
+                w.put("client", "host", Config.SERVER_HOST);
+                w.put("client", "port", Config.SERVER_PORT);
                 String nick = com.glory.launcher.util.NicknameHelper.getNickname(context);
                 if (nick != null && !nick.isEmpty()) {
                     w.put("client", "name", nick);
@@ -293,8 +295,8 @@ public class Utils extends AppCompatActivity {
                 String iniContent = "[client]\n"
                         + "name=" + nick + "\n"
                         + "server=0\n"
-                        + "host=play.glory-rp.ir\n"
-                        + "port=7777\n"
+                        + "host=" + Config.SERVER_HOST + "\n"
+                        + "port=" + Config.SERVER_PORT + "\n"
                         + "version=0.3.7\n"
                         + "password=\n"
                         + "autoaim=0\n\n"
