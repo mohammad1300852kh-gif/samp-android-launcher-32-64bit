@@ -32,6 +32,7 @@ import org.ini4j.Wini;
 import android.content.Intent;
 import com.glory.launcher.activities.DownloadActivity;
 import com.glory.launcher.activities.ChooseServerActivity;
+import com.glory.launcher.util.GameDataRequirements;
 
 public class Utils extends AppCompatActivity {
 
@@ -247,7 +248,8 @@ public class Utils extends AppCompatActivity {
         File anim = new File(path + "anim");
         File data = new File(path + "data");
         File models = new File(path + "models");
-        return anim.exists() && data.exists() && models.exists();
+        return anim.exists() && data.exists() && models.exists()
+                && GameDataRequirements.hasRequiredTextureDatabaseFiles(new File(path));
     }
 
     public static boolean isGameInstalled() {

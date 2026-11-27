@@ -22,6 +22,7 @@ import com.glory.launcher.activities.DownloadActivity;
 import com.glory.launcher.fragments.ServersFragment;
 import com.glory.launcher.network.SampQuery;
 import com.glory.launcher.network.Server;
+import com.glory.launcher.util.GameLaunchHelper;
 
 import org.ini4j.Wini;
 
@@ -96,10 +97,10 @@ public class ServerAdapter extends RecyclerView.Adapter<ServerAdapter.ViewHolder
                 )
             );
 
-            Utils.handleServerPlay(
-                monitoringFragment.getContext(),
-                monitoringFragment.getActivity(),
-                serverList.get(i).getID()
+            GameLaunchHelper.executePlayFlow(
+                    monitoringFragment.getActivity(),
+                    serverList.get(i).getID(),
+                    null
             );
         });
     }

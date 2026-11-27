@@ -30,11 +30,14 @@ public class GameLaunchHelper {
 
         // 1. Data Gate
         MainActivity.GameDataStatus status = MainActivity.evaluateGameDataStatus(activity);
-        if (status == MainActivity.GameDataStatus.MISSING) {
+        if (status != MainActivity.GameDataStatus.COMPLETE) {
+            boolean incomplete = status == MainActivity.GameDataStatus.INCOMPLETE;
             new AlertDialog.Builder(activity)
-                .setTitle("دیتای بازی یافت نشد")
-                .setMessage("برای ورود به بازی ابتدا باید دیتای بازی نصب شود.")
-                .setPositiveButton("دانلود دیتای بازی", (dialog, which) -> {
+                .setTitle(incomplete ? "دیتای بازی ناقص است" : "دیتای بازی یافت نشد")
+                .setMessage(incomplete
+                        ? "بخشی از فایل‌های دیتای بازی، از جمله فایل‌های texture، موجود نیست. برای ادامه دیتای بازی را ترمیم یا دوباره دانلود کنید."
+                        : "برای ورود به بازی ابتدا باید دیتای بازی نصب شود.")
+                .setPositiveButton(incomplete ? "ترمیم دیتای بازی" : "دانلود دیتای بازی", (dialog, which) -> {
                     activity.startActivity(new Intent(activity, DataDownloadActivity.class));
                 })
                 .setNegativeButton("انصراف", null)

@@ -35,6 +35,7 @@ import com.glory.launcher.network.Links;
 import com.glory.launcher.network.ManifestManager;
 import com.glory.launcher.network.model.LauncherManifest;
 import com.glory.launcher.util.GameLaunchHelper;
+import com.glory.launcher.util.GameDataRequirements;
 import com.glory.launcher.util.NicknameHelper;
 
 import java.io.File;
@@ -355,6 +356,9 @@ public class MainActivity extends AppCompatActivity {
             if (selectedInterrupted) {
                 return GameDataStatus.INCOMPLETE;
             }
+            if (!GameDataRequirements.hasRequiredTextureDatabaseFiles(selectedDir)) {
+                return GameDataStatus.INCOMPLETE;
+            }
             return GameDataStatus.COMPLETE;
         } else if (maxPresentCount > 0) {
             return GameDataStatus.INCOMPLETE;
@@ -384,7 +388,8 @@ public class MainActivity extends AppCompatActivity {
                     btnDownloadData.setVisibility(View.VISIBLE);
                 } else {
                     tvStatusDesc.setText(R.string.home_data_incomplete);
-                    btnDownloadData.setVisibility(View.GONE);
+                    btnDownloadData.setText("ترمیم دیتای ناقص");
+                    btnDownloadData.setVisibility(View.VISIBLE);
                 }
                 break;
 
