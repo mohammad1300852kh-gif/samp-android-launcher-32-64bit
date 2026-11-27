@@ -215,12 +215,15 @@ public class Hud {
     public native void setNativeChatConfig(float xPercent, float yPercent, float widthPercent, int lines, float fontSize);
     public native void setNativeHudMode(boolean isClassic);
 
+    private static final boolean ALWAYS_CLASSIC = true;
+
     public boolean isClassicHud() {
+        if (ALWAYS_CLASSIC) return true;
         try {
             if (activity != null) {
                 String hudType = Preferences.getString(activity, Preferences.HUD_TYPE, "");
                 if ("classic".equalsIgnoreCase(hudType)) return true;
-                if ("glory".equalsIgnoreCase(hudType)) return false;
+                if ("rexo".equalsIgnoreCase(hudType) || "legend".equalsIgnoreCase(hudType) || "glory".equalsIgnoreCase(hudType)) return false;
             }
         } catch (Exception ignored) {}
 
@@ -236,7 +239,7 @@ public class Hud {
                             if (parts.length >= 2) {
                                 String val = parts[1].trim();
                                 if (val.contains("classic")) return true;
-                                if (val.contains("glory")) return false;
+                                if (val.contains("rexo") || val.contains("legend") || val.contains("glory")) return false;
                             }
                         }
                     }
@@ -1312,7 +1315,7 @@ public class Hud {
         if (!s_hudWeaponBreadcrumbLogged) {
             s_hudWeaponBreadcrumbLogged = true;
             try {
-                File logFile = new File("/storage/emulated/0/GloryMobile/diag_log.txt");
+                File logFile = new File("/storage/emulated/0/RockstarRp/diag_log.txt");
                 if (logFile.exists()) {
                     try (FileWriter fw = new FileWriter(logFile, true)) {
                         fw.write("[DIAG] First HUD weapon icon lookup (weaponid=" + weaponid + ")\n");

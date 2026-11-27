@@ -56,10 +56,6 @@ public class DonateFragment extends Fragment {
 	public void onClickDeposit() {
 		if (this.nick.getText().toString().isEmpty()) {
 			Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.enterNikForDonate), Toast.LENGTH_LONG).show();
-		} else if (!this.nick.getText().toString().contains("_")) {
-			Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.mustContains_), Toast.LENGTH_LONG).show();
-		} else if (this.nick.getText().toString().length() < 4) {
-			Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.minLengthNik), Toast.LENGTH_LONG).show();
 		} else if (this.email.getText().toString().isEmpty()) {
 			Toast.makeText(getActivity(), getActivity().getResources().getString(R.string.enterYourEmail), Toast.LENGTH_LONG).show();
 		} else if (this.sum.getText().toString().isEmpty()) {
@@ -119,7 +115,7 @@ public class DonateFragment extends Fragment {
 								"&mail=" +
 								URLEncoder.encode(email.getText().toString(), Key.STRING_CHARSET_NAME) +
 								"&desc=" + URLEncoder.encode(String.format
-								("ÐŸÐ¾Ð¿Ð¾Ð»Ð½ÐµÐ½Ð¸Ðµ Ð¸Ð³Ñ€Ð¾Ð²Ð¾Ð³Ð¾ ÑÑ‡Ñ‘Ñ‚Ð° Ð½Ð° ÑÐµÑ€Ð²ÐµÑ€Ðµ LEGENDARY"), Key.STRING_CHARSET_NAME) +
+								("Пополнение игрового счёта на сервере Rockstar"), Key.STRING_CHARSET_NAME) +
 								"&server=1").getBytes()
 						);
 			} catch (Exception e) {

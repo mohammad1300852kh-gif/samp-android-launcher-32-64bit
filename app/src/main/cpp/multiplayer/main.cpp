@@ -26,7 +26,7 @@
 
 #include "StackTrace.h"
 
-#include "glory.h"
+#include "server_config.h"
 
 
 
@@ -456,7 +456,7 @@ void DoInitStuff()
 
 		pUI->chat()->setVisible(true);
 
-		pUI->buttonpanel()->setVisible(false);
+		pUI->buttonpanel()->setVisible(true);
 
 
 
@@ -530,15 +530,15 @@ void DoInitStuff()
 
 
 
-        Glory glory = GetGlory();
+        ServerConfig serverConfig = GetServerConfig();
 
  
 
         pNetGame = new CNetGame(
 
-                glory.szHost.c_str(),
+                serverConfig.szHost.c_str(),
 
-                glory.iPort,
+                serverConfig.iPort,
 
                 pSettings->Get().szNickName,
 
@@ -552,11 +552,11 @@ void DoInitStuff()
 
 
 
-        FLog("Network game initialized.",
+        FLog("Network game initialized: %s:%d",
 
-             glory.szHost.c_str(),
+             serverConfig.szHost.c_str(),
 
-             glory.iPort);
+             serverConfig.iPort);
 
     }
 
@@ -648,7 +648,11 @@ extern "C" {
 
 
 
+extern int Tab;
+
 JNIEXPORT void JNICALL Java_com_nvidia_devtech_NvEventQueueActivity_onTabClose(JNIEnv *pEnv, jobject thiz) {
+
+    Tab = 0;
 
     PlayerTabList* tab = pUI->playertablist();
 

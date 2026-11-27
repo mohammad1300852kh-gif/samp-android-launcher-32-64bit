@@ -5,5 +5,5 @@ pluginManagement {
         mavenCentral()
     }
 }
-rootProject.name = "GloryRP ARM-32x64"
+rootProject.name = "Rockstar Launcher"
 include ':app'

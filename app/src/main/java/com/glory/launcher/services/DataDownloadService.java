@@ -22,6 +22,7 @@ import com.glory.Config;
 import com.glory.game.R;
 import com.glory.launcher.activities.DataDownloadActivity;
 import com.glory.launcher.activities.MainActivity;
+import com.glory.launcher.network.Links;
 import com.glory.launcher.network.ManifestManager;
 import com.glory.launcher.network.model.LauncherManifest;
 import com.glory.launcher.util.PersianUtils;
@@ -37,6 +38,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.security.MessageDigest;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Enumeration;
 import java.util.HashSet;
 import java.util.List;
@@ -52,13 +54,13 @@ public class DataDownloadService extends Service {
 
     private static final String TAG = "DataDownloadService";
     private static final String TAG_EXTRACT = "DATA_EXTRACT";
-    private static final String CHANNEL_ID = "glory_data_sync_channel";
+    private static final String CHANNEL_ID = "rexo_data_sync_channel";
     private static final int NOTIFICATION_ID = 2026;
 
-    public static final String ACTION_START = "com.glory.action.START_DOWNLOAD";
-    public static final String ACTION_PAUSE = "com.glory.action.PAUSE_DOWNLOAD";
-    public static final String ACTION_RESUME = "com.glory.action.RESUME_DOWNLOAD";
-    public static final String ACTION_CANCEL = "com.glory.action.CANCEL_DOWNLOAD";
+    public static final String ACTION_START = "com.rexo.action.START_DOWNLOAD";
+    public static final String ACTION_PAUSE = "com.rexo.action.PAUSE_DOWNLOAD";
+    public static final String ACTION_RESUME = "com.rexo.action.RESUME_DOWNLOAD";
+    public static final String ACTION_CANCEL = "com.rexo.action.CANCEL_DOWNLOAD";
 
     public enum DownloadStep {
         IDLE,
@@ -194,12 +196,11 @@ public class DataDownloadService extends Service {
 
     private void runDownloadPipeline() {
         LauncherManifest manifest;
-        synchronized (lock) {
-            manifest = activeManifest;
-            if (manifest == null) {
-                manifest = ManifestManager.getInstance().getManifest(this);
-                activeManifest = manifest;
-            }
+        try {
+            manifest = createDataZipManifest();
+        } catch (Exception e) {
+            dispatchError("آدرس دانلود دیتای بازی معتبر نیست: " + e.getMessage());
+            return;
         }
 
         if (manifest == null || manifest.getData() == null) {
@@ -216,7 +217,7 @@ public class DataDownloadService extends Service {
 
         String gamePath = Config.GAME_PATH;
         if (gamePath == null || gamePath.isEmpty()) {
-            gamePath = "/storage/emulated/0/GloryMobile/";
+            gamePath = "/storage/emulated/0/RockstarRp/";
             Config.setGamePath(gamePath);
         }
         File gameDir = new File(gamePath);
@@ -224,7 +225,7 @@ public class DataDownloadService extends Service {
             gameDir.mkdirs();
         }
 
-        File tmpDir = new File(gameDir, ".glory_tmp");
+        File tmpDir = new File(gameDir, ".rexo_tmp");
         if (!tmpDir.exists()) {
             tmpDir.mkdirs();
         }
@@ -447,6 +448,24 @@ public class DataDownloadService extends Service {
         performExtraction(gameDir, tmpDir, files, dataInfo);
     }
 
+    private LauncherManifest createDataZipManifest() throws Exception {
+        URL dataUrl = new URL(Links.GAME_DATA_URL);
+        String fileName = new File(dataUrl.getPath()).getName();
+        if (fileName.isEmpty()) {
+            throw new IllegalArgumentException("The data URL must include a zip filename");
+        }
+
+        LauncherManifest manifest = new LauncherManifest();
+        LauncherManifest.DataInfo dataInfo = new LauncherManifest.DataInfo();
+        dataInfo.setBaseUrl(dataUrl.getProtocol() + "://" + dataUrl.getAuthority());
+
+        LauncherManifest.DataFile dataFile = new LauncherManifest.DataFile();
+        dataFile.setName(fileName);
+        dataInfo.setFiles(Collections.singletonList(dataFile));
+        manifest.setData(dataInfo);
+        return manifest;
+    }
+
     private void performExtraction(File gameDir, File tmpDir, List<LauncherManifest.DataFile> files, LauncherManifest.DataInfo dataInfo) {
         updateProgress(DownloadStep.EXTRACTING, currentProgress.totalBytes, currentProgress.totalBytes,
                 100, 0, 0, "در حال استخراج و نصب فایل‌ها...");
@@ -470,7 +489,7 @@ public class DataDownloadService extends Service {
             }
         }
 
-        // Only after ALL entries are extracted and verified: delete the zip(s) and .glory_tmp
+        // Only after ALL entries are extracted and verified: delete the zip(s) and .rexo_tmp
         try {
             for (LauncherManifest.DataFile df : files) {
                 File f = new File(tmpDir, df.getName());
@@ -603,8 +622,8 @@ public class DataDownloadService extends Service {
                         parent.mkdirs();
                     }
 
-                    // Write each file to a temporary name in the same folder (.glory_new)
-                    File tmpNewFile = new File(parent, targetFile.getName() + ".glory_new");
+                    // Write each file to a temporary name in the same folder (.rexo_new)
+                    File tmpNewFile = new File(parent, targetFile.getName() + ".rexo_new");
                     if (tmpNewFile.exists()) tmpNewFile.delete();
 
                     CRC32 crc32 = new CRC32();
@@ -817,7 +836,7 @@ public class DataDownloadService extends Service {
                     Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0);
 
             Notification notification = new NotificationCompat.Builder(this, CHANNEL_ID)
-                    .setContentTitle("دیتای بازی GloryRP")
+                    .setContentTitle("دیتای بازی Rockstar")
                     .setContentText("نصب دیتای بازی با موفقیت به پایان رسید.")
                     .setSmallIcon(R.drawable.ic_baseline_notifications_24)
                     .setAutoCancel(true)
@@ -834,7 +853,7 @@ public class DataDownloadService extends Service {
                 Build.VERSION.SDK_INT >= Build.VERSION_CODES.M ? PendingIntent.FLAG_IMMUTABLE : 0);
 
         return new NotificationCompat.Builder(this, CHANNEL_ID)
-                .setContentTitle("دانلود دیتای بازی GloryRP")
+                .setContentTitle("دانلود دیتای بازی Rockstar")
                 .setContentText(text)
                 .setSmallIcon(R.drawable.ic_baseline_notifications_24)
                 .setProgress(100, progress, progress == 0)

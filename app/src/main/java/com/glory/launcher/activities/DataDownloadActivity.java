@@ -229,19 +229,19 @@ public class DataDownloadActivity extends AppCompatActivity implements DataDownl
     }
 
     private void setStepActive(TextView badge, TextView text) {
-        badge.setBackgroundResource(R.drawable.glory_bg_step_circle_active);
+        badge.setBackgroundResource(R.drawable.rockstar_bg_step_circle_active);
         badge.setTextColor(0xFFFFFFFF);
         text.setTextColor(0xFFF5A30A);
     }
 
     private void setStepDone(TextView badge, TextView text) {
-        badge.setBackgroundResource(R.drawable.glory_bg_step_circle_done);
+        badge.setBackgroundResource(R.drawable.rockstar_bg_step_circle_done);
         badge.setTextColor(0xFFFFFFFF);
         text.setTextColor(0xFF2ECC71);
     }
 
     private void setStepPending(TextView badge, TextView text) {
-        badge.setBackgroundResource(R.drawable.glory_bg_step_circle_pending);
+        badge.setBackgroundResource(R.drawable.rockstar_bg_step_circle_pending);
         badge.setTextColor(0xFFA69BBB);
         text.setTextColor(0xFF7A6899);
     }

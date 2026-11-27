@@ -71,14 +71,14 @@ public class App extends MultiDexApplication
 		try {
 			FirebaseApp.initializeApp(this);
 			mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
-			Log.d("GoldParaha", "Firebase initialized successfully");
+			Log.d("Rockstar", "Firebase initialized successfully");
 			if (mFirebaseAnalytics != null) {
 				setUserProperties();
 			} else {
-				Log.w("GoldParaha", "FirebaseAnalytics instance is null");
+				Log.w("Rockstar", "FirebaseAnalytics instance is null");
 			}
 		} catch (Exception e) {
-			Log.e("GoldParaha", "Error initializing Firebase: " + e.getMessage(), e);
+			Log.e("Rockstar", "Error initializing Firebase: " + e.getMessage(), e);
 		}
 
 		initLogger();
@@ -91,9 +91,9 @@ public class App extends MultiDexApplication
 			mFirebaseAnalytics.setUserProperty("app_version", "0.8.2.1");
 			mFirebaseAnalytics.setUserProperty("device_architecture", "ARMx64");
 			mFirebaseAnalytics.setUserProperty("build_type", "release");
-			Log.d("GoldParaha", "User properties set successfully");
+			Log.d("Rockstar", "User properties set successfully");
 		} catch (Exception e) {
-			Log.e("GoldParaha", "Error setting user properties: " + e.getMessage(), e);
+			Log.e("Rockstar", "Error setting user properties: " + e.getMessage(), e);
 		}
 	}
 
@@ -121,11 +121,11 @@ public class App extends MultiDexApplication
 
 	public static App getInstance() { return instance; } // get app context
 	//
-	public String getTempNickName() { return this.tempNick; } // Ð²Ñ€ÐµÐ¼ÐµÐ½Ð½Ñ‹Ð¹ Ð½Ð¸Ðº
+	public String getTempNickName() { return this.tempNick; } // временный ник
 	public void setTempNickName(String str) { this.tempNick = str; }
 	//
-	public ArrayList<Server> getServerList() { return this.serverList; } // ÑÐ¿Ð¸ÑÐ¾Ðº ÑÐµÑ€Ð²ÐµÑ€Ð¾Ð²
-	public ArrayList<Story> getStories() { return this.stories; } // ÑÐ¿Ð¸ÑÐ¾Ðº ÑÑ‚Ð¾Ñ€Ð¸ÑÐ¾Ð²
+	public ArrayList<Server> getServerList() { return this.serverList; } // список серверов
+	public ArrayList<Story> getStories() { return this.stories; } // список сторисов
 	//
 	public void setGPU(String str) {
 		currentGPU = str;
@@ -140,17 +140,16 @@ public class App extends MultiDexApplication
 			activity.getExternalFilesDir((String) null).getAbsolutePath();
 			return true;
 		} catch (Exception unused) {
-			Toasty.error(activity, "Ð½ÐµÑ‚ Ð´Ð¾ÑÑ‚ÑƒÐ¿Ð° Ðº Ñ…Ñ€Ð°Ð½Ð¸Ð»Ð¸Ñ‰Ñƒ!", Toasty.LENGTH_LONG);
+			Toasty.error(activity, "دسترسی به حافظه ممکن نیست!", Toasty.LENGTH_LONG).show();
 			return false;
 		}
 	}
 
 	public static boolean isAppInstalledFromMarket(String marketNamePacket) {
-		if(getInstance().getPackageManager().
-				getInstallerPackageName(getInstance().getPackageName()).equals(marketNamePacket)) {
-			return true;
-		}
-		return false;
+		// FIX: getInstallerPackageName() returns null for sideloaded APKs -> NPE
+		String installer = getInstance().getPackageManager().
+				getInstallerPackageName(getInstance().getPackageName());
+		return installer != null && installer.equals(marketNamePacket);
 	}
 
 	// Yandex Metrika metodi OLIB TASHLANDI

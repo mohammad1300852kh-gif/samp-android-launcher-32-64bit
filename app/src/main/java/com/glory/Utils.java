@@ -51,7 +51,10 @@ public class Utils extends AppCompatActivity {
             Activity activity,
             int serverId
     ) {
-        if (!Utils.isGameInstalled()) return;
+        if (!Utils.isGameInstalled()) {
+            Toasty.error(context, "فایل‌های بازی پیدا نشد. ابتدا دیتای بازی را نصب کنید.", Toast.LENGTH_LONG).show();
+            return;
+        }
 
         File gameFiles = new File(Config.GAME_PATH + "data/ver.ini");
         int TARGET_GAMEFILES_VERSION = 0;
@@ -103,8 +106,12 @@ public class Utils extends AppCompatActivity {
                 }
 
             } catch (IOException e) {
-                Utils.writeLog(context, 'e', e.getMessage());
+                Utils.writeLog(context, 'e', String.valueOf(e.getMessage()));
+                Toasty.error(context, "خطا در نوشتن تنظیمات بازی", Toast.LENGTH_LONG).show();
             }
+        } else {
+            Utils.writeLog(context, 'e', "settings.ini could not be created in " + Config.GAME_PATH);
+            Toasty.error(context, "فایل تنظیمات بازی ساخته نشد. دسترسی حافظه را بررسی کنید.", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -257,15 +264,19 @@ public class Utils extends AppCompatActivity {
         } catch (Exception ignored) {}
 
         String[] candidates = new String[] {
-            "/storage/emulated/0/GloryMobile/files/",
-            "/storage/emulated/0/GloryMobile/",
+            "/storage/emulated/0/RockstarRp/",
+            "/storage/emulated/0/Rockstar/",
+            "/storage/emulated/0/RockstarMobile/",
+            "/storage/emulated/0/LegendMobile/",
+            "/storage/emulated/0/RockstarMobile/files/",
+            "/storage/emulated/0/LegendMobile/files/",
             "/storage/emulated/0/GTA/files/",
             "/storage/emulated/0/GTA/",
             extRoot.isEmpty() ? "" : extRoot + "/GTA/files/",
             extRoot.isEmpty() ? "" : extRoot + "/GTA/",
             "/sdcard/GTA/files/",
             "/sdcard/GTA/",
-            extRoot.isEmpty() ? "" : extRoot + "/Android/data/com.gloryrp.app/files/", extRoot + "/Android/data/com.glory.game/files/"
+            extRoot.isEmpty() ? "" : extRoot + "/Android/data/com.gloryrp.app/files/", extRoot + "/Android/data/com.gloryrp.app/files/"
         };
 
         for (String candidate : candidates) {
@@ -337,8 +348,10 @@ public class Utils extends AppCompatActivity {
 
         sb.append("بررسی پوشه‌ها:\n");
         String[] checks = new String[] {
-            "/storage/emulated/0/GloryMobile/",
-            "/storage/emulated/0/GloryMobile/files/",
+            "/storage/emulated/0/RockstarRp/",
+            "/storage/emulated/0/Rockstar/",
+            "/storage/emulated/0/RockstarMobile/",
+            "/storage/emulated/0/LegendMobile/",
             "/storage/emulated/0/GTA/",
             "/storage/emulated/0/GTA/files/"
         };

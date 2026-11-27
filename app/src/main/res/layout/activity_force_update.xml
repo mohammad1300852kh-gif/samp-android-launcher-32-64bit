@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/glory_bg_force_update_card"
+        android:background="@drawable/rockstar_bg_force_update_card"
         android:padding="32dp"
         android:gravity="center_horizontal"
         app:layout_constraintWidth_max="520dp"
@@ -50,13 +50,13 @@
         <FrameLayout
             android:layout_width="64dp"
             android:layout_height="64dp"
-            android:background="@drawable/glory_bg_step_circle_pending">
+            android:background="@drawable/rockstar_bg_step_circle_pending">
 
             <ImageView
                 android:layout_width="36dp"
                 android:layout_height="36dp"
                 android:layout_gravity="center"
-                android:src="@drawable/glory_ic_update_alert" />
+                android:src="@drawable/rockstar_ic_update_alert" />
         </FrameLayout>
 
         <!-- Title -->
@@ -91,7 +91,7 @@
             android:paddingEnd="18dp"
             android:paddingTop="8dp"
             android:paddingBottom="8dp"
-            android:background="@drawable/glory_bg_step_circle_pending">
+            android:background="@drawable/rockstar_bg_step_circle_pending">
 
             <TextView
                 android:id="@+id/tv_version_pill"
@@ -113,7 +113,7 @@
             android:textColor="#14091F"
             android:textSize="15sp"
             android:textStyle="bold"
-            android:background="@drawable/glory_btn_primary_amber" />
+            android:background="@drawable/rockstar_btn_primary_amber" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

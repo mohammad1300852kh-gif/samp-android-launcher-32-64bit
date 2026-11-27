@@ -7,17 +7,18 @@ public class Links {
 
     // Global Project URLs & Config
     public static final String MANIFEST_URL = "https://example.com/launcher/manifest.json";
-    public static final String TELEGRAM_CHANNEL = "https://t.me/YourChannel";
-    public static final String TELEGRAM_GROUP = "https://t.me/YourChannel";
-    public static final String TELEGRAM_SUPPORT = "https://t.me/YourChannel";
-    public static final String TELEGRAM_TUTORIAL = "https://t.me/YourChannel";
-    public static final String TELEGRAM_SHOP = "https://t.me/YourChannel";
-    public static final String APARAT = "https://www.aparat.com/YourChannel";
-    public static final String SOROUSH = "https://splus.ir/YourChannel";
-    public static final String SITE = "https://example.com";
+    public static final String TELEGRAM_CHANNEL = "https://t.me/RexoRolePlay";
+    public static final String TELEGRAM_GROUP = "https://t.me/RexoRolePlay";
+    public static final String TELEGRAM_SUPPORT = "https://t.me/RexoRolePlay";
+    public static final String TELEGRAM_TUTORIAL = "https://t.me/RexoRolePlay";
+    public static final String TELEGRAM_SHOP = "https://t.me/RexoRolePlay";
+    public static final String SITE = "https://forum.rockstarrp.ir";
     public static final String WEBSITE = SITE;
-    public static final String FORUM = "https://forum.example.com";
-    public static final String SERVER_IP = "127.0.0.1";
+    public static final String FORUM = "https://forum.rockstarrp.ir";
+    public static final String USER_PANEL = "https://rsrp.ir/ucp";
+    public static final String GAME_DATA_URL = "http://rsrp.ir/rsrp.zip";
+    public static final String SERVER_HOST = "5.57.37.215";
+    public static final String SERVER_IP = "5.57.37.215";
     public static final int SERVER_PORT = 7777;
 
     @SerializedName("URL_CLIENT")

@@ -29,7 +29,7 @@ void Diag_LogInvalidMesh(uint32_t modelIndex, const char* reason)
     if (modelIndex != s_lastLoggedModel || (now - s_lastLogTime) >= 2) {
         s_lastLoggedModel = modelIndex;
         s_lastLogTime = now;
-        __android_log_print(ANDROID_LOG_WARN, "GLORY_RENDER",
+        __android_log_print(ANDROID_LOG_WARN, "REXO_RENDER",
             "[RENDER_SKIP] Skipped atomic render: model=%u, reason=%s",
             modelIndex, reason ? reason : "invalid pointer");
     }
@@ -58,7 +58,7 @@ static void GetDiagPath(char* outPath, size_t outSize, const char* filename)
     if (g_pszStorage && g_pszStorage[0]) {
         snprintf(outPath, outSize, "%s%s", g_pszStorage, filename);
     } else {
-        snprintf(outPath, outSize, "/storage/emulated/0/GloryMobile/%s", filename);
+        snprintf(outPath, outSize, "/storage/emulated/0/RockstarRp/%s", filename);
     }
 }
 
@@ -92,7 +92,7 @@ void Diag_Breadcrumb(const char* tag)
         fsync(fd);
         close(fd);
     }
-    __android_log_print(ANDROID_LOG_INFO, "GLORY_DIAG", "[BREADCRUMB] %s", tag);
+    __android_log_print(ANDROID_LOG_INFO, "REXO_DIAG", "[BREADCRUMB] %s", tag);
 }
 
 void Diag_HookLog(const char* name, void* addr, bool success)

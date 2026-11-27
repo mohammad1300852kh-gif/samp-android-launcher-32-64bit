@@ -61,8 +61,6 @@ public class MainActivity extends AppCompatActivity {
 
     // Social Rail
     private ImageButton btnSocialTelegram;
-    private ImageButton btnSocialSoroush;
-    private ImageButton btnSocialAparat;
     private ImageButton btnSocialWebsite;
 
     // Data Status Card
@@ -107,8 +105,6 @@ public class MainActivity extends AppCompatActivity {
         btnSettings = findViewById(R.id.btn_settings);
 
         btnSocialTelegram = findViewById(R.id.btn_social_telegram);
-        btnSocialSoroush = findViewById(R.id.btn_social_soroush);
-        btnSocialAparat = findViewById(R.id.btn_social_aparat);
         btnSocialWebsite = findViewById(R.id.btn_social_website);
 
         cardGameData = findViewById(R.id.card_game_data);
@@ -159,12 +155,6 @@ public class MainActivity extends AppCompatActivity {
         // Social Links
         if (btnSocialTelegram != null) {
             btnSocialTelegram.setOnClickListener(v -> openUrl(Links.TELEGRAM_CHANNEL));
-        }
-        if (btnSocialSoroush != null) {
-            btnSocialSoroush.setOnClickListener(v -> openUrl(Links.SOROUSH));
-        }
-        if (btnSocialAparat != null) {
-            btnSocialAparat.setOnClickListener(v -> openUrl(Links.APARAT));
         }
         if (btnSocialWebsite != null) {
             btnSocialWebsite.setOnClickListener(v -> openUrl(Links.SITE));
@@ -274,7 +264,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static boolean hasInterruptedInstall(File gameDir) {
         if (gameDir == null || !gameDir.exists()) return false;
-        File tmpDir = new File(gameDir, ".glory_tmp");
+        File tmpDir = new File(gameDir, ".rexo_tmp");
         if (!tmpDir.exists() || !tmpDir.isDirectory()) return false;
         File[] files = tmpDir.listFiles();
         if (files == null || files.length == 0) return false;
@@ -298,14 +288,20 @@ public class MainActivity extends AppCompatActivity {
 
         String[] candidatePaths = new String[] {
             Config.GAME_PATH,
-            "/storage/emulated/0/GloryMobile/",
-            "/storage/emulated/0/GloryMobile/files/",
-            extRoot.isEmpty() ? "" : extRoot + "/GloryMobile/",
-            extRoot.isEmpty() ? "" : extRoot + "/GloryMobile/files/",
+            "/storage/emulated/0/RockstarRp/",
+            "/storage/emulated/0/Rockstar/",
+            "/storage/emulated/0/RockstarMobile/",
+            "/storage/emulated/0/LegendMobile/",
+            extRoot.isEmpty() ? "" : extRoot + "/Rockstar/",
+            extRoot.isEmpty() ? "" : extRoot + "/RockstarRp/",
+            extRoot.isEmpty() ? "" : extRoot + "/RockstarMobile/",
+            extRoot.isEmpty() ? "" : extRoot + "/LegendMobile/",
+            extRoot.isEmpty() ? "" : extRoot + "/RockstarMobile/files/",
+            extRoot.isEmpty() ? "" : extRoot + "/LegendMobile/files/",
             "/storage/emulated/0/GTA/",
             "/storage/emulated/0/GTA/files/",
             extRoot.isEmpty() ? "" : extRoot + "/Android/data/com.gloryrp.app/files/",
-            extRoot.isEmpty() ? "" : extRoot + "/Android/data/com.glory.game/files/"
+            extRoot.isEmpty() ? "" : extRoot + "/Android/data/com.gloryrp.app/files/"
         };
 
         File selectedDir = null;

@@ -39,13 +39,18 @@ public class WarMedia extends WarGamepad
 
                 // 3. Fallback checks
                 String[] candidates = new String[] {
-                    "/storage/emulated/0/GloryMobile/files/",
-                    "/storage/emulated/0/GloryMobile/",
+                    "/storage/emulated/0/RockstarRp/",
+                    "/storage/emulated/0/Rockstar/",
+                    "/storage/emulated/0/RockstarMobile/",
+                    "/storage/emulated/0/LegendMobile/",
+                    "/storage/emulated/0/RockstarMobile/files/",
+                    "/storage/emulated/0/LegendMobile/files/",
+                    "/storage/emulated/0/RockstarRp/files/",
                     "/storage/emulated/0/GTA/files/",
                     "/storage/emulated/0/GTA/",
                     this.baseDirectoryRoot + "/GTA/files/",
                     this.baseDirectoryRoot + "/GTA/",
-                    this.baseDirectoryRoot + "/Android/data/com.gloryrp.app/files/", this.baseDirectoryRoot + "/Android/data/com.glory.game/files/"
+                    this.baseDirectoryRoot + "/Android/data/com.gloryrp.app/files/", this.baseDirectoryRoot + "/Android/data/com.gloryrp.app/files/"
                 };
                 for (String c : candidates) {
                     File cDir = new File(c);

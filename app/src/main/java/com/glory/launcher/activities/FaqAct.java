@@ -46,16 +46,16 @@ public class FaqAct extends AppCompatActivity {
         movieList = new ArrayList<>();
         onEnterAnimationComplete();
 
-        movieList.add(new Movie("BRILLIANT RP",
-                "BRILLIANT ROLE PLAY"));
+        movieList.add(new Movie("Rockstar",
+                "Rockstar"));
 
-        movieList.add(new Movie("BRILLIANT RP",
-                "BRILLIANT MOBILE â€” Ð£Ð”ÐžÐ‘ÐÐ«Ð™ Ð˜ Ð¡Ð¢ÐÐ‘Ð˜Ð›Ð¬ÐÐ«Ð™ Ð›ÐÐ£ÐÐ§Ð•Ð . ÐŸÐ ÐžÐ¡Ð¢ÐžÐ™ Ð—ÐÐŸÐ£Ð¡Ðš, ÐšÐ ÐÐ¡Ð˜Ð’Ð«Ð™ Ð˜ÐÐ¢Ð•Ð Ð¤Ð•Ð™Ð¡ Ð˜ Ð’Ð«Ð¡ÐžÐšÐÐ¯ ÐÐÐ”ÐÐ–ÐÐžÐ¡Ð¢Ð¬."));
+        movieList.add(new Movie("Rockstar",
+                "لانچر Rockstar — ساده و پایدار. اجرای آسان، رابط کاربری زیبا و پایداری بالا."));
 
-        movieList.add(new Movie("BRILLIANT RP",
-                "ÐšÐžÐœÐÐÐ”Ð BRILLIANT RP."));
+        movieList.add(new Movie("Rockstar",
+                "تیم Rockstar."));
 
-        movieList.add(new Movie("Brilliant Mobile",
-                "Ð’Ð¡Ð, Ð§Ð¢Ðž ÐÐ£Ð–ÐÐž Ð”Ð›Ð¯ Ð¡ÐžÐ’Ð Ð•ÐœÐ•ÐÐÐžÐ“Ðž ÐŸÐ ÐžÐ•ÐšÐ¢Ð â€” Ð’ ÐžÐ”ÐÐžÐœ Ð›ÐÐ£ÐÐ§Ð•Ð Ð•. ÐŸÐ ÐžÐ¡Ð¢Ðž, Ð¡Ð¢Ð˜Ð›Ð¬ÐÐž, ÐÐÐ”ÐÐ–ÐÐž."));
+        movieList.add(new Movie("Rockstar Mobile",
+                "هر آنچه برای یک پروژه‌ی مدرن لازم است، در یک لانچر. ساده، شیک و قابل‌اعتماد."));
     }
 }

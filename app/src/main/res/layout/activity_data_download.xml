@@ -35,7 +35,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:background="@drawable/glory_bg_download_card"
+        android:background="@drawable/rockstar_bg_download_card"
         android:padding="28dp"
         android:gravity="center_horizontal"
         app:layout_constraintWidth_max="560dp"
@@ -57,13 +57,13 @@
             <FrameLayout
                 android:layout_width="48dp"
                 android:layout_height="48dp"
-                android:background="@drawable/glory_bg_step_circle_active">
+                android:background="@drawable/rockstar_bg_step_circle_active">
 
                 <ImageView
                     android:layout_width="24dp"
                     android:layout_height="24dp"
                     android:layout_gravity="center"
-                    android:src="@drawable/glory_ic_download_cloud" />
+                    android:src="@drawable/rockstar_ic_download_cloud" />
             </FrameLayout>
 
             <LinearLayout
@@ -120,7 +120,7 @@
                     android:textColor="#FFFFFF"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:background="@drawable/glory_bg_step_circle_active" />
+                    android:background="@drawable/rockstar_bg_step_circle_active" />
 
                 <TextView
                     android:id="@+id/step_1_text"
@@ -157,7 +157,7 @@
                     android:textColor="#A69BBB"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:background="@drawable/glory_bg_step_circle_pending" />
+                    android:background="@drawable/rockstar_bg_step_circle_pending" />
 
                 <TextView
                     android:id="@+id/step_2_text"
@@ -194,7 +194,7 @@
                     android:textColor="#A69BBB"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:background="@drawable/glory_bg_step_circle_pending" />
+                    android:background="@drawable/rockstar_bg_step_circle_pending" />
 
                 <TextView
                     android:id="@+id/step_3_text"
@@ -231,7 +231,7 @@
                     android:textColor="#A69BBB"
                     android:textSize="12sp"
                     android:textStyle="bold"
-                    android:background="@drawable/glory_bg_step_circle_pending" />
+                    android:background="@drawable/rockstar_bg_step_circle_pending" />
 
                 <TextView
                     android:id="@+id/step_4_text"
@@ -280,7 +280,7 @@
             android:layout_marginTop="8dp"
             android:max="100"
             android:progress="0"
-            android:progressDrawable="@drawable/glory_progress_horizontal" />
+            android:progressDrawable="@drawable/rockstar_progress_horizontal" />
 
         <!-- Speed &amp; ETA Row -->
         <RelativeLayout
@@ -336,7 +336,7 @@
                 android:text="توقف"
                 android:textColor="#FFFFFF"
                 android:textSize="14sp"
-                android:background="@drawable/glory_btn_secondary_selector" />
+                android:background="@drawable/rockstar_btn_secondary_selector" />
 
             <Space
                 android:layout_width="16dp"
@@ -351,7 +351,7 @@
                 android:text="لغو"
                 android:textColor="#C3B5D9"
                 android:textSize="14sp"
-                android:background="@drawable/glory_btn_secondary_selector" />
+                android:background="@drawable/rockstar_btn_secondary_selector" />
         </LinearLayout>
 
         <!-- Retry Button (Shown on error) -->
@@ -365,7 +365,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:visibility="gone"
-            android:background="@drawable/glory_btn_primary_amber" />
+            android:background="@drawable/rockstar_btn_primary_amber" />
 
         <!-- Finish Button (Shown on complete) -->
         <Button
@@ -378,7 +378,7 @@
             android:textSize="15sp"
             android:textStyle="bold"
             android:visibility="gone"
-            android:background="@drawable/glory_btn_primary_amber" />
+            android:background="@drawable/rockstar_btn_primary_amber" />
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

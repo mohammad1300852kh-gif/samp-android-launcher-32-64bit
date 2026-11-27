@@ -52,11 +52,17 @@ public class DiagDialog extends Dialog {
     private TextView logTextView;
 
     public static String getGameDirectory() {
-        File f1 = new File("/storage/emulated/0/GloryMobile/");
+        File f1 = new File(com.glory.Config.GAME_PATH);
         if (f1.exists()) return f1.getAbsolutePath();
-        File f2 = new File("/sdcard/GloryMobile/");
-        if (f2.exists()) return f2.getAbsolutePath();
-        return "/storage/emulated/0/GloryMobile/";
+        for (String path : new String[] {
+                "/storage/emulated/0/RockstarRp/",
+                "/storage/emulated/0/Rockstar/",
+                "/storage/emulated/0/LegendMobile/"
+        }) {
+            File candidate = new File(path);
+            if (candidate.exists()) return candidate.getAbsolutePath();
+        }
+        return "/storage/emulated/0/RockstarRp/";
     }
 
     public DiagDialog(@NonNull Context context) {
@@ -103,7 +109,7 @@ public class DiagDialog extends Dialog {
         root.addView(symTitle);
 
         TextView symInfo = new TextView(getContext());
-        String infoText = "Version Code: 113 (GLORYRP)\n" +
+        String infoText = "Version Code: 113 (ROCKSTARRP)\n" +
                 "Architectures: arm64-v8a, armeabi-v7a\n" +
                 "Symbols Directory: symbols/release/\n" +
                 "Data Dir: " + getGameDirectory();
@@ -119,7 +125,7 @@ public class DiagDialog extends Dialog {
         copySymBtn.setTextColor(Color.BLACK);
         copySymBtn.setBackgroundColor(Color.parseColor("#DAA520"));
         copySymBtn.setOnClickListener(v -> {
-            copyToClipboard("GloryRP Build & Symbols", infoText);
+            copyToClipboard("Rockstar Build & Symbols", infoText);
             Toast.makeText(getContext(), "اطلاعات نمادها کپی شد", Toast.LENGTH_SHORT).show();
         });
         root.addView(copySymBtn);

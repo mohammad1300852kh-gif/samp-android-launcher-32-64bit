@@ -29,7 +29,7 @@
             android:focusable="true"
             android:padding="6dp"
             android:rotation="180"
-            android:src="@drawable/glory_ic_back"
+            android:src="@drawable/rockstar_ic_back"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -54,7 +54,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:fontFamily="@font/montserrat_semibold"
-            android:text="• شخصی‌سازی هود و عملکرد"
+            android:text="• شخصی‌سازی عملکرد و چت"
             android:textColor="#78909C"
             android:textSize="12sp"
             app:layout_constraintBaseline_toBaselineOf="@+id/tv_settings_title"
@@ -78,132 +78,6 @@
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp">
-
-            <!-- ============================================== -->
-            <!-- SECTION 1: HUD STYLE SELECTION                 -->
-            <!-- ============================================== -->
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="طرح رابط کاربری و هود (HUD Style)"
-                android:textColor="#FFA000"
-                android:textSize="14sp"
-                android:textStyle="bold" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="2dp"
-                android:fontFamily="@font/montserrat_semibold"
-                android:text="سبک نمایش نقشه، نوار سلامت و دکمه‌های کنترل بازی را انتخاب کنید:"
-                android:textColor="#90A4AE"
-                android:textSize="11sp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:orientation="horizontal">
-
-                <!-- Glory HUD Card -->
-                <LinearLayout
-                    android:id="@+id/card_hud_glory"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginEnd="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/settings_card_selected_bg"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="هود گلوری (Glory)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <RadioButton
-                            android:id="@+id/radio_hud_glory"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="#FFA000"
-                            android:checked="true"
-                            android:clickable="false" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="طراحی مدرن با رادار گرد اختصاصی، دسترسی سریع، منو، کیف و کلیدهای کنترل یکپارچه"
-                        android:textColor="#B0BEC5"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-                <!-- Classic HUD Card -->
-                <LinearLayout
-                    android:id="@+id/card_hud_classic"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/settings_card_bg"
-                    android:clickable="true"
-                    android:focusable="true"
-                    android:orientation="vertical"
-                    android:padding="14dp">
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:fontFamily="@font/montserrat_semibold"
-                            android:text="هود کلاسیک (Classic)"
-                            android:textColor="#FFFFFF"
-                            android:textSize="14sp"
-                            android:textStyle="bold" />
-
-                        <RadioButton
-                            android:id="@+id/radio_hud_classic"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:buttonTint="#FFA000"
-                            android:checked="false"
-                            android:clickable="false" />
-                    </LinearLayout>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="4dp"
-                        android:fontFamily="@font/montserrat_semibold"
-                        android:text="طراحی کلاسیک سن‌آندریاس: رادار سمت چپ بالا، چت استاندارد، و دکمه‌های [ >> | Alt | Y | N | H ] و G"
-                        android:textColor="#B0BEC5"
-                        android:textSize="11sp" />
-                </LinearLayout>
-
-            </LinearLayout>
-
 
             <!-- ============================================== -->
             <!-- SECTION 2: PERFORMANCE &amp; FPS                   -->
@@ -605,7 +479,7 @@
                     android:layout_height="46dp"
                     android:layout_marginStart="8dp"
                     android:layout_weight="1.4"
-                    android:background="@drawable/glory_btn_primary_amber"
+                    android:background="@drawable/rockstar_btn_primary_amber"
                     android:fontFamily="@font/montserrat_semibold"
                     android:text="ذخیره تنظیمات"
                     android:textColor="#101014"

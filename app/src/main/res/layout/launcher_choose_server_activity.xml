@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/glory_bg_choose_server">
+    android:background="@drawable/rockstar_bg_choose_server">
 
     <!-- Blurred Background Photo -->
     <ImageView
