@@ -28,6 +28,8 @@
     <string name="home_data_needed_toast">برای ورود ابتدا باید دیتای کامل بازی را نصب کنید</string>
     <string name="home_downloader_soon">دانلودر خودکار دیتا به‌زودی در دسترس قرار می‌گیرد</string>
     <string name="desc_telegram">کانال تلگرام Rockstar</string>
+    <string name="desc_soroush">کانال سروش Rockstar</string>
+    <string name="desc_aparat">کانال آپارات Rockstar</string>
     <string name="desc_website">پنل کاربری Rockstar</string>
     <string name="desc_settings">تنظیمات و منو</string>
     <string name="desc_edit_nick">ویرایش نام کاربری</string>
